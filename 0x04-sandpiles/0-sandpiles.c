@@ -21,7 +21,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 	}
 	if (grid1[0][0] > 3 || grid1[0][1] > 3 || grid1[0][2] > 3 ||
 		grid1[1][0] > 3 || grid1[1][1] > 3 || grid1[1][2] > 3 ||
-		grid1[2][0] > 3 || grid1[2][1] > 3 || grid1[2][2] > 3)
+	    grid1[2][0] > 3 || grid1[2][1] > 3 || grid1[2][2] > 3)
 	{
 		printf("=\n");
 		_print_grid(grid1);
@@ -90,7 +90,7 @@ void stables_sandpiles(int grid1[3][3], int grid2[3][3])
 	}
 	if (grid1[0][0] > 3 || grid1[0][1] > 3 || grid1[0][2] > 3 ||
 		grid1[1][0] > 3 || grid1[1][1] > 3 || grid1[1][2] > 3 ||
-		grid1[2][0] > 3 || grid1[2][1] > 3 || grid1[2][2] > 3)
+	    grid1[2][0] > 3 || grid1[2][1] > 3 || grid1[2][2] > 3)
 	{
 		printf("=\n");
 		_print_grid(grid1);
