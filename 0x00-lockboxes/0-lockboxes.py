@@ -2,48 +2,23 @@
 """can unlock all boxes """
 
 
-#!/usr/bin/python3
-
 def canUnlockAll(boxes):
-    if not boxes or ( type(boxes) != list):
-        return 0
-    keyList=[]
-    hasMoreKeys = False
-    countBoxes = len(boxes)
-    boxesUnlock = setBoxesUnlock(countBoxes)
-   
-    for i in range(countBoxes):
-        if( type(boxes[i]) == list ):
-            if i == 0:
-                keyList.append(0)
-                setKeys(boxes[i], keyList)
-           
-            #print("i: {}, boxesUnlock[i]: {}, keyList: {}".format(i, boxesUnlock,keyList))
-            if boxesUnlock[i] == 0 and keyList.count(i) > 0:
-                #print("i: {}, boxesUnlock: {}, keyList: {}".format(i,boxesUnlock,keyList))
-                unlockBox(keyList,boxesUnlock,boxes)
-                #print("i: {}, boxesUnlock: {}, keyList: {}".format(i,boxesUnlock,keyList))
 
-            if boxesUnlock.count(0) == 0:
-                return True
-    
-    return False
+    opened_boxes = [0]
+    i = 0
 
-def unlockBox(keys,boxesUnlock,boxes):
-    keys_copy = keys
-    for key in keys_copy:
-        if key <= len(boxesUnlock):
-            boxesUnlock[key] = 1
-            setKeys(boxes[key],keys)
-        keys.remove(key)
+    while i < len(opened_boxes):
 
-def setKeys(box, keyList):
-    for key in box:
-        if keyList.count(key) == 0:
-            keyList.append(key) 
+        if boxes[opened_boxes[i]] == [] or \
+                (set(boxes[opened_boxes[i]]).issubset(opened_boxes)):
+            pass
+        else:
+            for b in boxes[opened_boxes[i]]:
 
-def setBoxesUnlock(count):
-    boxes = []
-    for i in range(count):
-        boxes.append(0)
-    return boxes       
+                if b < len(boxes) and b not in opened_boxes:
+                    opened_boxes.append(b)
+                else:
+                    continue
+        i += 1
+
+    return True if len(opened_boxes) == len(boxes) else False
