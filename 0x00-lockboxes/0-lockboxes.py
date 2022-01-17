@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """can unlock all boxes """
 
+
 def canUnlockAll(boxes):
     newlist = []
     k = len(boxes)
